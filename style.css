@@ -1,0 +1,245 @@
+:root {
+  --bg: #eef3f9;
+  --panel: #ffffff;
+  --text: #1a2a3a;
+  --accent: #2b6cb0;
+  --zinc: #6f7682;
+  --zinc-ion: #405ec4;
+  --copper: #b56a2a;
+  --copper-ion: #1b8fb6;
+  --sulfate: #6b4f8d;
+  --electron: #111111;
+  --wire: #374151;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, #f4f8fc, var(--bg));
+  color: var(--text);
+}
+
+.app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 1rem 2rem;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
+h1 {
+  margin: 0.2rem 0;
+}
+
+.subtitle {
+  margin: 0;
+  color: #4a5f76;
+}
+
+.simulation-card,
+.panel {
+  background: var(--panel);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(18, 33, 58, 0.08);
+}
+
+.simulation-card {
+  padding: 0.8rem;
+}
+
+#cellSvg {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: #f7fbff;
+  border: 1px solid #d2dce7;
+}
+
+#wirePath {
+  fill: none;
+  stroke: var(--wire);
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.consumer {
+  fill: #ffe08a;
+  stroke: #b3841c;
+  stroke-width: 2;
+}
+
+.arrow-line {
+  stroke: #1f2937;
+  stroke-width: 3;
+}
+
+.arrow-head {
+  fill: #1f2937;
+}
+
+.glass {
+  fill: #ffffff;
+  stroke: #8aa0b8;
+  stroke-width: 3;
+}
+
+.solution {
+  opacity: 0.84;
+}
+
+.zinc-solution {
+  fill: #d6e3ff;
+}
+
+.copper-solution {
+  fill: #d9f2f8;
+}
+
+.electrode {
+  stroke: rgba(0, 0, 0, 0.3);
+  stroke-width: 2;
+}
+
+.zinc-electrode {
+  fill: var(--zinc);
+}
+
+.copper-electrode {
+  fill: var(--copper);
+}
+
+.salt-bridge {
+  fill: none;
+  stroke: #bfa6df;
+  stroke-width: 22;
+  stroke-linecap: round;
+  opacity: 0.85;
+}
+
+.label {
+  fill: #1f2d3d;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.label-strong {
+  font-weight: 700;
+}
+
+.halfcell-title {
+  fill: #20344a;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.reaction-text {
+  fill: #1f2d3d;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.particle-label {
+  font-size: 14px;
+  fill: #07213d;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.controls {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.8rem;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 0.95rem;
+  background: var(--accent);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1f5086;
+}
+
+.explanation-box {
+  margin-top: 0.7rem;
+  background: #eef6ff;
+  border: 1px solid #c6def8;
+  border-radius: 10px;
+  padding: 0.6rem 0.8rem;
+}
+
+.explanation-box p {
+  margin: 0.3rem 0 0;
+}
+
+.info-grid {
+  margin-top: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 0.8rem;
+}
+
+.panel {
+  padding: 0.9rem;
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.panel ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+}
+
+.electron-dot {
+  background: var(--electron);
+}
+
+.zinc-dot {
+  background: var(--zinc-ion);
+}
+
+.copper-dot {
+  background: var(--copper-ion);
+}
+
+.sulfate-dot {
+  background: var(--sulfate);
+}
+
+@media (max-width: 900px) {
+  .label,
+  .reaction-text,
+  .halfcell-title {
+    font-size: 18px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
