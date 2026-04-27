@@ -1,0 +1,486 @@
+:root {
+  --bg: #eef3f8;
+  --panel: #ffffff;
+  --ink: #1f2933;
+  --muted: #5f6c7b;
+  --line: #c7d2df;
+  --wire: #2d3748;
+  --zinc: #9aa3ad;
+  --zinc-dark: #6b7280;
+  --copper: #c87442;
+  --copper-dark: #96512d;
+  --electron: #233b8f;
+  --sulfate: #7867b8;
+  --water-zinc: #d7ebf8;
+  --water-copper: #d8eef1;
+  --accent: #2b6cb0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: linear-gradient(180deg, #f7fafc 0%, var(--bg) 100%);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 22px 0 28px;
+}
+
+.app-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.app-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.status-panel {
+  min-width: 150px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 8px 28px rgba(31, 41, 51, 0.08);
+}
+
+.status-label,
+.card-kicker {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.simulation-panel,
+.explanation-card,
+.info-card,
+.legend-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 34px rgba(31, 41, 51, 0.08);
+}
+
+.simulation-panel {
+  overflow: hidden;
+}
+
+.cell-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1100 / 620;
+  background: #fbfdff;
+}
+
+.halfcell-title,
+.component-label,
+.bridge-label,
+.flow-label,
+.solution-label,
+.electrode-label,
+.pole-label {
+  fill: var(--ink);
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.halfcell-title {
+  font-size: 24px;
+}
+
+.component-label,
+.bridge-label,
+.flow-label {
+  font-size: 18px;
+}
+
+.flow-label {
+  fill: var(--electron);
+}
+
+.solution-label,
+.electrode-label,
+.pole-label {
+  font-size: 17px;
+}
+
+.wire {
+  fill: none;
+  stroke: var(--wire);
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.consumer-body {
+  fill: #fff5c2;
+  stroke: #b7791f;
+  stroke-width: 3;
+}
+
+.resistor-line {
+  stroke: #704214;
+  stroke-width: 3;
+}
+
+.resistor-zigzag {
+  fill: none;
+  stroke: #704214;
+  stroke-width: 4;
+  stroke-linejoin: round;
+}
+
+.flow-arrow,
+.ion-flow-line {
+  fill: none;
+  stroke: var(--electron);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 8 8;
+}
+
+.arrow-head {
+  fill: var(--electron);
+}
+
+.beaker-glass {
+  fill: none;
+  stroke: #708090;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.solution {
+  opacity: 0.86;
+}
+
+.zinc-solution {
+  fill: var(--water-zinc);
+}
+
+.copper-solution {
+  fill: var(--water-copper);
+}
+
+.electrode {
+  stroke-width: 3;
+}
+
+.zinc-electrode {
+  fill: var(--zinc);
+  stroke: var(--zinc-dark);
+}
+
+.copper-electrode {
+  fill: var(--copper);
+  stroke: var(--copper-dark);
+}
+
+.zinc-atom {
+  fill: #d3d8df;
+  stroke: var(--zinc-dark);
+  stroke-width: 2;
+}
+
+.copper-atom {
+  fill: #e89b64;
+  stroke: var(--copper-dark);
+  stroke-width: 2;
+}
+
+.zinc-ion {
+  fill: #eef2f7;
+  stroke: var(--zinc-dark);
+  stroke-width: 2;
+}
+
+.copper-ion {
+  fill: #ffe6d4;
+  stroke: var(--copper-dark);
+  stroke-width: 2;
+}
+
+.sulfate-ion {
+  fill: #ebe7ff;
+  stroke: var(--sulfate);
+  stroke-width: 2;
+}
+
+.electron {
+  fill: #dbe7ff;
+  stroke: var(--electron);
+  stroke-width: 3;
+}
+
+.atom-text,
+.small-atom-text,
+.ion-text,
+.electron-text,
+.bridge-ion {
+  fill: var(--ink);
+  font-weight: 700;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.atom-text,
+.ion-text,
+.electron-text {
+  font-size: 14px;
+}
+
+.small-atom-text {
+  font-size: 11px;
+}
+
+.salt-bridge {
+  fill: #f8fafc;
+  stroke: #7b8794;
+  stroke-width: 4;
+}
+
+.bridge-ion {
+  font-size: 15px;
+}
+
+.is-running .moving-anion {
+  animation: bridgeAnion 4.8s linear infinite;
+}
+
+.is-running .moving-cation {
+  animation: bridgeCation 4.8s linear infinite;
+}
+
+.equation-box rect {
+  fill: #ffffff;
+  stroke: var(--line);
+  stroke-width: 2;
+}
+
+.equation-box text {
+  fill: var(--ink);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.reaction-particle {
+  opacity: 0;
+}
+
+.is-running .oxidation-particle {
+  animation: zincIonLeaves 5s ease-in-out infinite;
+}
+
+.is-running .reduction-particle {
+  animation: copperIonArrives 5s ease-in-out infinite;
+}
+
+.is-running .produced-copper {
+  animation: copperAppears 5s ease-in-out infinite;
+}
+
+.cable-electron,
+.cable-electron-text {
+  opacity: 0;
+}
+
+.is-running .cable-electron,
+.is-running .cable-electron-text {
+  opacity: 1;
+}
+
+.is-paused * {
+  animation-play-state: paused !important;
+}
+
+.is-paused animateMotion,
+.is-paused animate {
+  animation-play-state: paused;
+}
+
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+button {
+  min-width: 112px;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #ffffff;
+  background: var(--accent);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+button:hover {
+  background: #1f5f99;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 14px;
+}
+
+.explanation-card,
+.info-card,
+.legend-card {
+  padding: 16px;
+}
+
+.explanation-card p,
+.info-card p {
+  margin: 7px 0;
+  line-height: 1.45;
+}
+
+.legend-list {
+  display: grid;
+  gap: 9px;
+}
+
+.legend-list span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+.electron-dot {
+  background: #dbe7ff;
+  border: 2px solid var(--electron);
+}
+
+.zinc-dot {
+  background: #eef2f7;
+  border: 2px solid var(--zinc-dark);
+}
+
+.copper-dot {
+  background: #ffe6d4;
+  border: 2px solid var(--copper-dark);
+}
+
+.sulfate-dot {
+  background: #ebe7ff;
+  border: 2px solid var(--sulfate);
+}
+
+@keyframes zincIonLeaves {
+  0%, 12% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  25%, 70% {
+    opacity: 1;
+    transform: translate(-74px, 74px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-112px, 110px);
+  }
+}
+
+@keyframes copperIonArrives {
+  0%, 45% {
+    opacity: 1;
+    transform: translate(125px, 80px);
+  }
+  68% {
+    opacity: 1;
+    transform: translate(38px, 48px);
+  }
+  80%, 100% {
+    opacity: 0;
+    transform: translate(38px, 48px);
+  }
+}
+
+@keyframes copperAppears {
+  0%, 62% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  75%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bridgeAnion {
+  0% { transform: translateX(70px); opacity: 0.55; }
+  50% { opacity: 1; }
+  100% { transform: translateX(-72px); opacity: 0.55; }
+}
+
+@keyframes bridgeCation {
+  0% { transform: translateX(-70px); opacity: 0.55; }
+  50% { opacity: 1; }
+  100% { transform: translateX(72px); opacity: 0.55; }
+}
+
+@media (max-width: 860px) {
+  .app-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .control-row button {
+    flex: 1 1 150px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

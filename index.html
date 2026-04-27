@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniell-Element Simulation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div>
+        <h1>Galvanische Zelle: Daniell-Element</h1>
+        <p>Zink-Anode, Kupfer-Kathode und Ladungsausgleich durch die Ionenbrücke</p>
+      </div>
+      <div class="status-panel" aria-live="polite">
+        <span class="status-label">Status</span>
+        <strong id="animationStatus">Bereit</strong>
+      </div>
+    </header>
+
+    <section class="simulation-panel" aria-label="Simulation eines Daniell-Elements">
+      <svg id="cellSvg" class="cell-svg" viewBox="0 0 1100 620" role="img" aria-labelledby="svgTitle svgDescription">
+        <title id="svgTitle">Daniell-Element mit Zink- und Kupfer-Halbzelle</title>
+        <desc id="svgDescription">
+          Links befindet sich die Zink-Halbzelle, rechts die Kupfer-Halbzelle.
+          Elektronen fließen außen vom Zink zur Kupfer-Elektrode.
+          Die Ionenbrücke sorgt für den Ladungsausgleich.
+        </desc>
+
+        <!-- Background labels -->
+        <text x="215" y="60" class="halfcell-title">Zink-Halbzelle</text>
+        <text x="735" y="60" class="halfcell-title">Kupfer-Halbzelle</text>
+
+        <!-- Outer circuit -->
+        <path class="wire" d="M 280 150 C 280 70, 450 88, 480 88 L 620 88 C 650 88, 820 70, 820 150" />
+        <rect x="495" y="56" width="110" height="64" rx="8" class="consumer-body" />
+        <line x1="510" y1="88" x2="590" y2="88" class="resistor-line" />
+        <path d="M 515 88 L 525 75 L 540 101 L 555 75 L 570 101 L 585 88" class="resistor-zigzag" />
+        <text x="550" y="43" class="component-label">Verbraucher</text>
+        <text x="550" y="143" class="flow-label">Elektronenfluss</text>
+        <path d="M 423 130 L 498 130" class="flow-arrow" />
+        <polygon points="498,130 485,123 485,137" class="arrow-head" />
+
+        <!-- Animated electrons in the outer circuit -->
+        <circle class="electron cable-electron electron-one" r="12">
+          <animateMotion dur="5s" repeatCount="indefinite" path="M 280 150 C 280 70, 450 88, 480 88 L 620 88 C 650 88, 820 70, 820 150" />
+        </circle>
+        <text class="electron-text cable-electron-text electron-one-text" text-anchor="middle" dy="5">e⁻
+          <animateMotion dur="5s" repeatCount="indefinite" path="M 280 150 C 280 70, 450 88, 480 88 L 620 88 C 650 88, 820 70, 820 150" />
+        </text>
+        <circle class="electron cable-electron electron-two" r="12">
+          <animateMotion dur="5s" begin="1.7s" repeatCount="indefinite" path="M 280 150 C 280 70, 450 88, 480 88 L 620 88 C 650 88, 820 70, 820 150" />
+        </circle>
+        <text class="electron-text cable-electron-text electron-two-text" text-anchor="middle" dy="5">e⁻
+          <animateMotion dur="5s" begin="1.7s" repeatCount="indefinite" path="M 280 150 C 280 70, 450 88, 480 88 L 620 88 C 650 88, 820 70, 820 150" />
+        </text>
+        <circle class="electron cable-electron electron-three" r="12">
+          <animateMotion dur="5s" begin="3.4s" repeatCount="indefinite" path="M 280 150 C 280 70, 450 88, 480 88 L 620 88 C 650 88, 820 70, 820 150" />
+        </circle>
+        <text class="electron-text cable-electron-text electron-three-text" text-anchor="middle" dy="5">e⁻
+          <animateMotion dur="5s" begin="3.4s" repeatCount="indefinite" path="M 280 150 C 280 70, 450 88, 480 88 L 620 88 C 650 88, 820 70, 820 150" />
+        </text>
+
+        <!-- Beakers -->
+        <path class="beaker-glass" d="M 120 170 L 120 530 Q 120 565 155 565 L 365 565 Q 400 565 400 530 L 400 170" />
+        <path class="beaker-glass" d="M 700 170 L 700 530 Q 700 565 735 565 L 945 565 Q 980 565 980 530 L 980 170" />
+        <rect x="132" y="300" width="256" height="250" class="solution zinc-solution" />
+        <rect x="712" y="300" width="256" height="250" class="solution copper-solution" />
+        <text x="260" y="588" class="solution-label">ZnSO₄-Lösung</text>
+        <text x="840" y="588" class="solution-label">CuSO₄-Lösung</text>
+
+        <!-- Electrodes -->
+        <rect x="242" y="150" width="76" height="330" rx="6" class="electrode zinc-electrode" />
+        <rect x="782" y="150" width="76" height="330" rx="6" class="electrode copper-electrode" />
+        <text x="280" y="515" class="electrode-label">Zink-Elektrode</text>
+        <text x="820" y="515" class="electrode-label">Kupfer-Elektrode</text>
+        <text x="280" y="112" class="pole-label">Anode (-)</text>
+        <text x="820" y="112" class="pole-label">Kathode (+)</text>
+
+        <!-- Zinc atoms in metal -->
+        <g class="metal-atoms">
+          <circle cx="263" cy="205" r="14" class="zinc-atom" /><text x="263" y="210" class="atom-text">Zn</text>
+          <circle cx="298" cy="238" r="14" class="zinc-atom" /><text x="298" y="243" class="atom-text">Zn</text>
+          <circle cx="263" cy="276" r="14" class="zinc-atom" /><text x="263" y="281" class="atom-text">Zn</text>
+          <circle cx="298" cy="318" r="14" class="zinc-atom" /><text x="298" y="323" class="atom-text">Zn</text>
+          <circle cx="263" cy="360" r="14" class="zinc-atom" /><text x="263" y="365" class="atom-text">Zn</text>
+          <circle cx="298" cy="405" r="14" class="zinc-atom" /><text x="298" y="410" class="atom-text">Zn</text>
+        </g>
+
+        <!-- Copper deposit -->
+        <g class="copper-deposit">
+          <circle cx="793" cy="368" r="10" class="copper-atom" /><text x="793" y="372" class="small-atom-text">Cu</text>
+          <circle cx="799" cy="398" r="10" class="copper-atom" /><text x="799" y="402" class="small-atom-text">Cu</text>
+          <circle cx="793" cy="428" r="10" class="copper-atom" /><text x="793" y="432" class="small-atom-text">Cu</text>
+          <circle id="newCopperAtom" cx="795" cy="338" r="10" class="copper-atom produced-copper" /><text id="newCopperText" x="795" y="342" class="small-atom-text produced-copper">Cu</text>
+        </g>
+
+        <!-- Ions in solutions -->
+        <g class="solution-ions">
+          <circle cx="175" cy="348" r="17" class="zinc-ion" /><text x="175" y="354" class="ion-text">Zn²⁺</text>
+          <circle cx="345" cy="392" r="17" class="zinc-ion" /><text x="345" y="398" class="ion-text">Zn²⁺</text>
+          <circle cx="205" cy="470" r="20" class="sulfate-ion" /><text x="205" y="476" class="ion-text">SO₄²⁻</text>
+          <circle cx="345" cy="505" r="20" class="sulfate-ion" /><text x="345" y="511" class="ion-text">SO₄²⁻</text>
+
+          <circle cx="755" cy="375" r="17" class="copper-ion" /><text x="755" y="381" class="ion-text">Cu²⁺</text>
+          <circle cx="900" cy="335" r="17" class="copper-ion" /><text x="900" y="341" class="ion-text">Cu²⁺</text>
+          <circle cx="742" cy="492" r="20" class="sulfate-ion" /><text x="742" y="498" class="ion-text">SO₄²⁻</text>
+          <circle cx="910" cy="470" r="20" class="sulfate-ion" /><text x="910" y="476" class="ion-text">SO₄²⁻</text>
+        </g>
+
+        <!-- Reaction particles -->
+        <g id="oxidationParticle" class="reaction-particle oxidation-particle">
+          <circle cx="305" cy="300" r="17" class="zinc-ion" />
+          <text x="305" y="306" class="ion-text">Zn²⁺</text>
+        </g>
+        <g id="reductionParticle" class="reaction-particle reduction-particle">
+          <circle cx="760" cy="320" r="17" class="copper-ion" />
+          <text x="760" y="326" class="ion-text">Cu²⁺</text>
+        </g>
+
+        <!-- Salt bridge -->
+        <path class="salt-bridge" d="M 390 285 C 450 215, 650 215, 710 285 L 682 310 C 630 260, 470 260, 418 310 Z" />
+        <text x="550" y="218" class="bridge-label">Ionenbrücke</text>
+        <path d="M 478 274 C 515 250, 585 250, 622 274" class="ion-flow-line" />
+        <path d="M 622 295 C 585 320, 515 320, 478 295" class="ion-flow-line" />
+        <text x="505" y="260" class="bridge-ion moving-anion">SO₄²⁻</text>
+        <text x="598" y="310" class="bridge-ion moving-cation">K⁺</text>
+
+        <!-- Reaction equations in scene -->
+        <g class="equation-box oxidation-box">
+          <rect x="75" y="80" width="245" height="54" rx="8" />
+          <text x="94" y="102">Oxidation</text>
+          <text x="94" y="124">Zn → Zn²⁺ + 2 e⁻</text>
+        </g>
+        <g class="equation-box reduction-box">
+          <rect x="780" y="80" width="265" height="54" rx="8" />
+          <text x="799" y="102">Reduktion</text>
+          <text x="799" y="124">Cu²⁺ + 2 e⁻ → Cu</text>
+        </g>
+      </svg>
+    </section>
+
+    <section class="control-row" aria-label="Bedienelemente">
+      <button id="startButton" type="button">Start</button>
+      <button id="pauseButton" type="button">Pause</button>
+      <button id="resetButton" type="button">Reset</button>
+      <button id="explainButton" type="button">Schrittweise Erklärung</button>
+    </section>
+
+    <section class="content-grid">
+      <article class="explanation-card" aria-live="polite">
+        <span class="card-kicker">Erklärung</span>
+        <p id="stepText">Klicke auf „Schrittweise Erklärung“, um die Vorgänge nacheinander zu betrachten.</p>
+      </article>
+
+      <article class="info-card">
+        <span class="card-kicker">Reaktionsgleichungen</span>
+        <p><strong>Oxidation:</strong> Zn → Zn²⁺ + 2 e⁻</p>
+        <p><strong>Reduktion:</strong> Cu²⁺ + 2 e⁻ → Cu</p>
+        <p><strong>Gesamtreaktion:</strong> Zn + Cu²⁺ → Zn²⁺ + Cu</p>
+      </article>
+
+      <article class="legend-card">
+        <span class="card-kicker">Legende</span>
+        <div class="legend-list">
+          <span><i class="legend-dot electron-dot"></i>e⁻ = Elektron</span>
+          <span><i class="legend-dot zinc-dot"></i>Zn²⁺ = Zink-Ion</span>
+          <span><i class="legend-dot copper-dot"></i>Cu²⁺ = Kupfer-Ion</span>
+          <span><i class="legend-dot sulfate-dot"></i>SO₄²⁻ = Sulfat-Ion</span>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
