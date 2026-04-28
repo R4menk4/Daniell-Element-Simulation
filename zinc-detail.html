@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oxidation an der Zink-Elektrode</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-detail-view="zinc">
+  <main class="app detail-app">
+    <header class="app-header">
+      <div>
+        <h1>Oxidation an der Zink-Elektrode</h1>
+        <p>Lupenansicht: Ein Zink-Atom gibt Elektronen ab und geht als Zn²⁺-Ion in Lösung.</p>
+      </div>
+      <a class="back-link" href="index.html">Zurück zur Gesamtübersicht</a>
+    </header>
+
+    <section class="simulation-panel detail-panel" aria-label="Detailansicht der Zink-Elektrode">
+      <svg id="zincDetailSvg" class="detail-svg detail-running" viewBox="0 0 1100 620" role="img" aria-labelledby="detailTitle detailDescription">
+        <title id="detailTitle">Vergrößerte Oxidation an der Zink-Elektrode</title>
+        <desc id="detailDescription">
+          Die linke Seite zeigt die Zink-Elektrode als Metalloberfläche.
+          Rechts befindet sich die Lösung. Ein Zink-Atom gibt zwei Elektronen ab,
+          wird zu Zn²⁺ und wandert in die Lösung. Die Elektronen bleiben im Metall.
+        </desc>
+
+        <defs>
+          <clipPath id="lensClip">
+            <circle cx="550" cy="310" r="275" />
+          </clipPath>
+        </defs>
+
+        <circle cx="550" cy="310" r="287" class="lens-frame" />
+        <circle cx="550" cy="310" r="275" class="lens-background" />
+        <text x="550" y="70" class="detail-title">Oxidation an der Zink-Elektrode</text>
+        <text x="550" y="104" class="detail-equation">Zn → Zn²⁺ + 2 e⁻</text>
+
+        <g clip-path="url(#lensClip)">
+          <rect x="210" y="125" width="330" height="390" class="detail-metal" />
+          <rect x="540" y="125" width="350" height="390" class="detail-solution" />
+          <line x1="540" y1="125" x2="540" y2="515" class="metal-surface-line" />
+
+          <text x="395" y="150" class="detail-region-label">Metalloberfläche</text>
+          <text x="690" y="150" class="detail-region-label">Lösung</text>
+          <g class="zinc-lattice">
+            <circle cx="310" cy="220" r="28" class="detail-zinc-atom" /><text x="310" y="228" class="detail-particle-text">Zn</text>
+            <circle cx="390" cy="220" r="28" class="detail-zinc-atom" /><text x="390" y="228" class="detail-particle-text">Zn</text>
+            <circle cx="470" cy="220" r="28" class="detail-zinc-atom" /><text x="470" y="228" class="detail-particle-text">Zn</text>
+            <circle cx="310" cy="300" r="28" class="detail-zinc-atom" /><text x="310" y="308" class="detail-particle-text">Zn</text>
+            <circle cx="390" cy="300" r="28" class="detail-zinc-atom" /><text x="390" y="308" class="detail-particle-text">Zn</text>
+            <circle cx="310" cy="380" r="28" class="detail-zinc-atom" /><text x="310" y="388" class="detail-particle-text">Zn</text>
+            <circle cx="390" cy="380" r="28" class="detail-zinc-atom" /><text x="390" y="388" class="detail-particle-text">Zn</text>
+            <circle cx="470" cy="380" r="28" class="detail-zinc-atom" /><text x="470" y="388" class="detail-particle-text">Zn</text>
+          </g>
+
+          <g class="surface-zinc-atom">
+            <circle cx="470" cy="300" r="31" class="detail-zinc-atom highlighted-zinc" />
+            <text x="470" y="309" class="detail-particle-text">Zn</text>
+          </g>
+
+          <g class="released-zinc-ion">
+            <circle cx="470" cy="300" r="31" class="detail-zinc-ion" />
+            <text x="470" y="309" class="detail-particle-text">Zn²⁺</text>
+          </g>
+
+          <g class="detail-electron electron-a">
+            <circle cx="470" cy="300" r="16" class="electron" />
+            <text x="470" y="306" class="electron-text">e⁻</text>
+          </g>
+          <g class="detail-electron electron-b">
+            <circle cx="470" cy="300" r="16" class="electron" />
+            <text x="470" y="306" class="electron-text">e⁻</text>
+          </g>
+
+          <path d="M 470 300 C 560 290, 625 250, 720 228" class="zinc-ion-path" />
+          <path d="M 445 430 C 380 430, 330 410, 270 395" class="detail-electron-path" />
+          <polygon points="270,395 285,388 282,404" class="detail-arrow-head" />
+
+          <circle cx="665" cy="340" r="24" class="sulfate-ion" />
+          <text x="665" y="348" class="detail-small-text">SO₄²⁻</text>
+          <circle cx="760" cy="405" r="24" class="zinc-ion" />
+          <text x="760" y="413" class="detail-small-text">Zn²⁺</text>
+          <circle cx="805" cy="270" r="24" class="sulfate-ion" />
+          <text x="805" y="278" class="detail-small-text">SO₄²⁻</text>
+        </g>
+      </svg>
+    </section>
+
+    <section class="control-row" aria-label="Bedienelemente der Detailansicht">
+      <button id="nextDetailStepButton" type="button">Nächster Schritt</button>
+    </section>
+
+    <section class="content-grid detail-content-grid">
+      <article class="explanation-card" aria-live="polite">
+        <span class="card-kicker">Detail-Erklärung</span>
+        <p id="detailStepText">Klicke auf „Nächster Schritt“, um die Oxidation an der Zink-Oberfläche zu verfolgen.</p>
+      </article>
+
+      <article class="info-card">
+        <span class="card-kicker">Merksatz</span>
+        <p>Das Zink-Atom verschwindet nicht. Es gibt zwei Elektronen ab, wird zu Zn²⁺ und geht in die Lösung über.</p>
+      </article>
+
+      <article class="legend-card">
+        <span class="card-kicker">Teilchen</span>
+        <div class="legend-list">
+          <span><i class="legend-dot zinc-dot"></i>Zn = Zink-Atom im Metall</span>
+          <span><i class="legend-dot zinc-dot"></i>Zn²⁺ = Zink-Ion in Lösung</span>
+          <span><i class="legend-dot electron-dot"></i>e⁻ = Elektron im Metall</span>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

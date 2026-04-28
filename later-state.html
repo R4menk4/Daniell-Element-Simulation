@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zustand nach längerem Betrieb</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div>
+        <h1>Zustand nach längerem Betrieb</h1>
+        <p>Die Daniell-Zelle nach fortgesetzter Oxidation von Zink und Reduktion von Kupfer-Ionen.</p>
+      </div>
+      <a class="back-link" href="index.html">Zurück zur Gesamtübersicht</a>
+    </header>
+
+    <section class="simulation-panel" aria-label="Daniell-Element nach längerer Betriebszeit">
+      <svg class="cell-svg later-state-svg" viewBox="0 0 1100 620" role="img" aria-labelledby="laterTitle laterDescription">
+        <title id="laterTitle">Daniell-Element nach längerer Betriebszeit</title>
+        <desc id="laterDescription">
+          Die Zink-Elektrode ist kleiner, weil Zink als Zn²⁺ in Lösung gegangen ist.
+          Die Kupfer-Elektrode ist größer, weil Kupfer aus Cu²⁺-Ionen abgeschieden wurde.
+          In der Zink-Halbzelle befinden sich mehr Zn²⁺-Ionen, in der Kupfer-Halbzelle weniger Cu²⁺-Ionen.
+        </desc>
+
+        <text x="215" y="60" class="halfcell-title">Zink-Halbzelle</text>
+        <text x="735" y="60" class="halfcell-title">Kupfer-Halbzelle</text>
+
+        <!-- Outer circuit remains visible to keep the complete cell structure clear. -->
+        <path class="wire" d="M 280 250 C 280 86, 450 88, 480 88 L 620 88 C 650 88, 820 70, 820 125" />
+        <rect x="495" y="56" width="110" height="64" rx="8" class="consumer-body" />
+        <line x1="510" y1="88" x2="590" y2="88" class="resistor-line" />
+        <path d="M 515 88 L 525 75 L 540 101 L 555 75 L 570 101 L 585 88" class="resistor-zigzag" />
+        <text x="550" y="43" class="component-label">Verbraucher</text>
+        <text x="550" y="143" class="flow-label">Elektronenfluss</text>
+        <path d="M 423 130 L 498 130" class="flow-arrow" />
+        <polygon points="498,130 485,123 485,137" class="arrow-head" />
+
+        <path class="beaker-glass" d="M 120 170 L 120 530 Q 120 565 155 565 L 365 565 Q 400 565 400 530 L 400 170" />
+        <path class="beaker-glass" d="M 700 170 L 700 530 Q 700 565 735 565 L 945 565 Q 980 565 980 530 L 980 170" />
+        <rect x="132" y="300" width="256" height="250" class="solution zinc-solution" />
+        <rect x="712" y="300" width="256" height="250" class="solution copper-solution" />
+        <text x="260" y="588" class="solution-label">ZnSO₄-Lösung</text>
+        <text x="840" y="588" class="solution-label">CuSO₄-Lösung</text>
+
+        <!-- Smaller zinc electrode: material has gone into solution as Zn²⁺. -->
+        <rect x="256" y="250" width="48" height="230" rx="6" class="electrode zinc-electrode later-zinc-electrode" />
+        <text x="280" y="515" class="electrode-label">Zink-Elektrode</text>
+        <text x="280" y="112" class="pole-label">Anode (-)</text>
+
+        <!-- Larger copper electrode: copper has been deposited at the cathode. -->
+        <rect x="764" y="125" width="112" height="355" rx="6" class="electrode copper-electrode later-copper-electrode" />
+        <text x="820" y="515" class="electrode-label">Kupfer-Elektrode</text>
+        <text x="820" y="112" class="pole-label">Kathode (+)</text>
+
+        <g class="later-metal-atoms">
+          <circle cx="276" cy="295" r="13" class="zinc-atom" /><text x="276" y="300" class="atom-text">Zn</text>
+          <circle cx="276" cy="350" r="13" class="zinc-atom" /><text x="276" y="355" class="atom-text">Zn</text>
+          <circle cx="276" cy="405" r="13" class="zinc-atom" /><text x="276" y="410" class="atom-text">Zn</text>
+
+          <circle cx="785" cy="178" r="11" class="copper-atom" /><text x="785" y="182" class="small-atom-text">Cu</text>
+          <circle cx="823" cy="178" r="11" class="copper-atom" /><text x="823" y="182" class="small-atom-text">Cu</text>
+          <circle cx="861" cy="178" r="11" class="copper-atom" /><text x="861" y="182" class="small-atom-text">Cu</text>
+          <circle cx="785" cy="225" r="11" class="copper-atom" /><text x="785" y="229" class="small-atom-text">Cu</text>
+          <circle cx="823" cy="225" r="11" class="copper-atom" /><text x="823" y="229" class="small-atom-text">Cu</text>
+          <circle cx="861" cy="225" r="11" class="copper-atom" /><text x="861" y="229" class="small-atom-text">Cu</text>
+          <circle cx="785" cy="272" r="11" class="copper-atom" /><text x="785" y="276" class="small-atom-text">Cu</text>
+          <circle cx="823" cy="272" r="11" class="copper-atom" /><text x="823" y="276" class="small-atom-text">Cu</text>
+          <circle cx="861" cy="272" r="11" class="copper-atom" /><text x="861" y="276" class="small-atom-text">Cu</text>
+          <circle cx="785" cy="319" r="11" class="copper-atom" /><text x="785" y="323" class="small-atom-text">Cu</text>
+          <circle cx="823" cy="319" r="11" class="copper-atom" /><text x="823" y="323" class="small-atom-text">Cu</text>
+          <circle cx="861" cy="319" r="11" class="copper-atom" /><text x="861" y="323" class="small-atom-text">Cu</text>
+          <circle cx="785" cy="366" r="11" class="copper-atom" /><text x="785" y="370" class="small-atom-text">Cu</text>
+          <circle cx="823" cy="366" r="11" class="copper-atom" /><text x="823" y="370" class="small-atom-text">Cu</text>
+          <circle cx="861" cy="366" r="11" class="copper-atom" /><text x="861" y="370" class="small-atom-text">Cu</text>
+          <circle cx="785" cy="413" r="11" class="copper-atom" /><text x="785" y="417" class="small-atom-text">Cu</text>
+          <circle cx="823" cy="413" r="11" class="copper-atom" /><text x="823" y="417" class="small-atom-text">Cu</text>
+          <circle cx="861" cy="413" r="11" class="copper-atom" /><text x="861" y="417" class="small-atom-text">Cu</text>
+          <circle cx="785" cy="455" r="11" class="copper-atom" /><text x="785" y="459" class="small-atom-text">Cu</text>
+          <circle cx="823" cy="455" r="11" class="copper-atom" /><text x="823" y="459" class="small-atom-text">Cu</text>
+          <circle cx="861" cy="455" r="11" class="copper-atom" /><text x="861" y="459" class="small-atom-text">Cu</text>
+        </g>
+
+        <!-- More Zn²⁺ ions in the zinc half-cell after longer operation. -->
+        <g class="solution-ions">
+          <circle cx="170" cy="340" r="17" class="zinc-ion" /><text x="170" y="346" class="ion-text">Zn²⁺</text>
+          <circle cx="225" cy="385" r="17" class="zinc-ion" /><text x="225" y="391" class="ion-text">Zn²⁺</text>
+          <circle cx="340" cy="365" r="17" class="zinc-ion" /><text x="340" y="371" class="ion-text">Zn²⁺</text>
+          <circle cx="178" cy="455" r="17" class="zinc-ion" /><text x="178" y="461" class="ion-text">Zn²⁺</text>
+          <circle cx="315" cy="485" r="17" class="zinc-ion" /><text x="315" y="491" class="ion-text">Zn²⁺</text>
+          <circle cx="242" cy="520" r="17" class="zinc-ion" /><text x="242" y="526" class="ion-text">Zn²⁺</text>
+          <circle cx="198" cy="500" r="20" class="sulfate-ion" /><text x="198" y="506" class="ion-text">SO₄²⁻</text>
+          <circle cx="350" cy="520" r="20" class="sulfate-ion" /><text x="350" y="526" class="ion-text">SO₄²⁻</text>
+
+          <!-- Fewer Cu²⁺ ions remain in the copper half-cell. -->
+          <circle cx="930" cy="350" r="17" class="copper-ion" /><text x="930" y="356" class="ion-text">Cu²⁺</text>
+          <circle cx="918" cy="480" r="20" class="sulfate-ion" /><text x="918" y="486" class="ion-text">SO₄²⁻</text>
+          <circle cx="738" cy="492" r="20" class="sulfate-ion" /><text x="738" y="498" class="ion-text">SO₄²⁻</text>
+        </g>
+
+        <path class="salt-bridge" d="M 390 285 C 450 215, 650 215, 710 285 L 682 310 C 630 260, 470 260, 418 310 Z" />
+        <text x="550" y="218" class="bridge-label">Ionenbrücke</text>
+        <path d="M 478 274 C 515 250, 585 250, 622 274" class="ion-flow-line" />
+        <path d="M 622 295 C 585 320, 515 320, 478 295" class="ion-flow-line" />
+        <text x="505" y="260" class="bridge-ion">SO₄²⁻</text>
+        <text x="598" y="310" class="bridge-ion">K⁺</text>
+
+        <g class="change-label">
+          <rect x="92" y="92" width="255" height="72" rx="8" />
+          <text x="110" y="118">Zink-Elektrode wird kleiner</text>
+          <text x="110" y="144">mehr Zn²⁺ in Lösung</text>
+        </g>
+        <g class="change-label">
+          <rect x="738" y="92" width="275" height="72" rx="8" />
+          <text x="756" y="118">Kupfer-Elektrode wächst</text>
+          <text x="756" y="144">weniger Cu²⁺ in Lösung</text>
+        </g>
+      </svg>
+    </section>
+
+    <section class="content-grid later-content-grid">
+      <article class="explanation-card">
+        <span class="card-kicker">Beobachtung</span>
+        <p>Nach längerer Betriebszeit hat die Zink-Elektrode Masse verloren, weil Zink-Atome als Zn²⁺-Ionen in Lösung gegangen sind.</p>
+      </article>
+
+      <article class="info-card">
+        <span class="card-kicker">Auswertung</span>
+        <p>Die Kupfer-Elektrode hat an Masse gewonnen, weil Cu²⁺-Ionen Elektronen aufgenommen haben und als Kupfer abgeschieden wurden.</p>
+      </article>
+
+      <article class="legend-card">
+        <span class="card-kicker">Merke</span>
+        <p>Mehr Zn²⁺ links, weniger Cu²⁺ rechts: Die Stoffmengen in den Halbzellen verändern sich während des Betriebs.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

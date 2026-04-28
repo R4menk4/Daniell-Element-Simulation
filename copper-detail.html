@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reduktion an der Kupfer-Elektrode</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-detail-view="copper">
+  <main class="app detail-app">
+    <header class="app-header">
+      <div>
+        <h1>Reduktion an der Kupfer-Elektrode</h1>
+        <p>Lupenansicht: Ein Cu²⁺-Ion nimmt Elektronen auf und lagert sich als Cu-Atom ab.</p>
+      </div>
+      <a class="back-link" href="index.html">Zurück zur Gesamtübersicht</a>
+    </header>
+
+    <section class="simulation-panel detail-panel" aria-label="Detailansicht der Kupfer-Elektrode">
+      <svg id="copperDetailSvg" class="detail-svg detail-running" viewBox="0 0 1100 620" role="img" aria-labelledby="copperDetailTitle copperDetailDescription">
+        <title id="copperDetailTitle">Vergrößerte Reduktion an der Kupfer-Elektrode</title>
+        <desc id="copperDetailDescription">
+          Links befindet sich die Lösung mit Kupfer-Ionen. Rechts liegt die Kupfer-Elektrode.
+          Elektronen kommen im Metall an. Ein Cu²⁺-Ion nimmt zwei Elektronen auf und wird
+          als neutrales Cu-Atom an der Elektrode abgeschieden.
+        </desc>
+
+        <defs>
+          <clipPath id="copperLensClip">
+            <circle cx="550" cy="310" r="275" />
+          </clipPath>
+        </defs>
+
+        <circle cx="550" cy="310" r="287" class="lens-frame" />
+        <circle cx="550" cy="310" r="275" class="lens-background" />
+        <text x="550" y="70" class="detail-title">Reduktion an der Kupfer-Elektrode</text>
+        <text x="550" y="104" class="detail-equation">Cu²⁺ + 2 e⁻ → Cu</text>
+
+        <g clip-path="url(#copperLensClip)">
+          <rect x="210" y="125" width="350" height="390" class="detail-solution copper-detail-solution" />
+          <rect x="560" y="125" width="330" height="390" class="detail-copper-metal" />
+          <line x1="560" y1="125" x2="560" y2="515" class="metal-surface-line copper-surface-line" />
+
+          <text x="410" y="150" class="detail-region-label">Lösung</text>
+          <text x="705" y="150" class="detail-region-label">Metalloberfläche</text>
+
+          <g class="copper-lattice">
+            <circle cx="630" cy="220" r="28" class="detail-copper-atom" /><text x="630" y="228" class="detail-particle-text">Cu</text>
+            <circle cx="710" cy="220" r="28" class="detail-copper-atom" /><text x="710" y="228" class="detail-particle-text">Cu</text>
+            <circle cx="790" cy="220" r="28" class="detail-copper-atom" /><text x="790" y="228" class="detail-particle-text">Cu</text>
+            <circle cx="630" cy="300" r="28" class="detail-copper-atom" /><text x="630" y="308" class="detail-particle-text">Cu</text>
+            <circle cx="710" cy="300" r="28" class="detail-copper-atom" /><text x="710" y="308" class="detail-particle-text">Cu</text>
+            <circle cx="790" cy="300" r="28" class="detail-copper-atom" /><text x="790" y="308" class="detail-particle-text">Cu</text>
+            <circle cx="630" cy="380" r="28" class="detail-copper-atom" /><text x="630" y="388" class="detail-particle-text">Cu</text>
+            <circle cx="710" cy="380" r="28" class="detail-copper-atom" /><text x="710" y="388" class="detail-particle-text">Cu</text>
+            <circle cx="790" cy="380" r="28" class="detail-copper-atom" /><text x="790" y="388" class="detail-particle-text">Cu</text>
+          </g>
+
+          <g class="solution-copper-ions">
+            <circle cx="300" cy="240" r="26" class="detail-copper-ion" /><text x="300" y="248" class="detail-particle-text">Cu²⁺</text>
+            <circle cx="380" cy="398" r="26" class="detail-copper-ion" /><text x="380" y="406" class="detail-particle-text">Cu²⁺</text>
+            <circle cx="305" cy="455" r="24" class="sulfate-ion" /><text x="305" y="463" class="detail-small-text">SO₄²⁻</text>
+            <circle cx="455" cy="220" r="24" class="sulfate-ion" /><text x="455" y="228" class="detail-small-text">SO₄²⁻</text>
+          </g>
+
+          <g class="active-copper-ion">
+            <circle cx="400" cy="305" r="31" class="detail-copper-ion transforming-copper-particle highlighted-copper-ion" />
+            <text x="400" y="314" class="detail-particle-text copper-ion-label">Cu²⁺</text>
+            <text x="400" y="314" class="detail-particle-text copper-atom-label">Cu</text>
+          </g>
+
+          <g class="detail-electron copper-electron-a">
+            <circle cx="830" cy="450" r="16" class="electron" />
+            <text x="830" y="456" class="electron-text">e⁻</text>
+          </g>
+          <g class="detail-electron copper-electron-b">
+            <circle cx="785" cy="480" r="16" class="electron" />
+            <text x="785" y="486" class="electron-text">e⁻</text>
+          </g>
+        </g>
+      </svg>
+    </section>
+
+    <section class="control-row" aria-label="Bedienelemente der Detailansicht">
+      <button id="nextDetailStepButton" type="button">Nächster Schritt</button>
+    </section>
+
+    <section class="content-grid detail-content-grid">
+      <article class="explanation-card" aria-live="polite">
+        <span class="card-kicker">Detail-Erklärung</span>
+        <p id="detailStepText">Klicke auf „Nächster Schritt“, um die Reduktion an der Kupfer-Oberfläche zu verfolgen.</p>
+      </article>
+
+      <article class="info-card">
+        <span class="card-kicker">Merksatz</span>
+        <p>Das Cu²⁺-Ion nimmt zwei Elektronen auf. Dadurch entsteht ein neutrales Cu-Atom, das sich an der Elektrode abscheidet.</p>
+      </article>
+
+      <article class="legend-card">
+        <span class="card-kicker">Teilchen</span>
+        <div class="legend-list">
+          <span><i class="legend-dot copper-dot"></i>Cu = Kupfer-Atom im Metall</span>
+          <span><i class="legend-dot copper-dot"></i>Cu²⁺ = Kupfer-Ion in Lösung</span>
+          <span><i class="legend-dot electron-dot"></i>e⁻ = Elektron im Metall</span>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

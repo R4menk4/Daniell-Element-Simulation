@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selbstüberprüfung</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app self-check-app">
+    <header class="app-header">
+      <div>
+        <h1>Selbstüberprüfung: Galvanische Zelle</h1>
+        <p>Ordne die Begriffe per Drag & Drop den passenden Stellen in der Abbildung zu.</p>
+      </div>
+      <a class="back-link" href="index.html">Zurück zur Gesamtübersicht</a>
+    </header>
+
+    <section class="self-check-layout">
+      <div class="self-check-figure" aria-label="Unbeschriftete galvanische Zelle mit Ablagefeldern">
+        <svg class="cell-svg self-check-svg" viewBox="0 0 1100 620" role="img" aria-labelledby="selfCheckTitle selfCheckDescription">
+          <title id="selfCheckTitle">Unbeschriftete galvanische Zelle</title>
+          <desc id="selfCheckDescription">
+            Eine galvanische Zelle mit zwei Halbzellen, zwei Elektroden, Ionenbrücke,
+            äußerem Stromkreis und Verbraucher. Die Fachbegriffe sollen selbst zugeordnet werden.
+          </desc>
+
+          <path class="wire" d="M 280 150 C 280 70, 450 88, 480 88 L 620 88 C 650 88, 820 70, 820 150" />
+          <rect x="495" y="56" width="110" height="64" rx="8" class="consumer-body" />
+          <line x1="510" y1="88" x2="590" y2="88" class="resistor-line" />
+          <path d="M 515 88 L 525 75 L 540 101 L 555 75 L 570 101 L 585 88" class="resistor-zigzag" />
+          <path d="M 423 130 L 498 130" class="flow-arrow" />
+          <polygon points="498,130 485,123 485,137" class="arrow-head" />
+
+          <path class="beaker-glass" d="M 120 170 L 120 530 Q 120 565 155 565 L 365 565 Q 400 565 400 530 L 400 170" />
+          <path class="beaker-glass" d="M 700 170 L 700 530 Q 700 565 735 565 L 945 565 Q 980 565 980 530 L 980 170" />
+          <rect x="132" y="300" width="256" height="250" class="solution zinc-solution" />
+          <rect x="712" y="300" width="256" height="250" class="solution copper-solution" />
+
+          <rect x="242" y="150" width="76" height="330" rx="6" class="electrode zinc-electrode" />
+          <rect x="782" y="150" width="76" height="330" rx="6" class="electrode copper-electrode" />
+
+          <g class="metal-atoms">
+            <circle cx="263" cy="205" r="14" class="zinc-atom" /><text x="263" y="210" class="atom-text">Zn</text>
+            <circle cx="298" cy="238" r="14" class="zinc-atom" /><text x="298" y="243" class="atom-text">Zn</text>
+            <circle cx="263" cy="276" r="14" class="zinc-atom" /><text x="263" y="281" class="atom-text">Zn</text>
+            <circle cx="298" cy="318" r="14" class="zinc-atom" /><text x="298" y="323" class="atom-text">Zn</text>
+            <circle cx="263" cy="360" r="14" class="zinc-atom" /><text x="263" y="365" class="atom-text">Zn</text>
+            <circle cx="298" cy="405" r="14" class="zinc-atom" /><text x="298" y="410" class="atom-text">Zn</text>
+          </g>
+
+          <g class="copper-deposit">
+            <circle cx="793" cy="368" r="10" class="copper-atom" /><text x="793" y="372" class="small-atom-text">Cu</text>
+            <circle cx="799" cy="398" r="10" class="copper-atom" /><text x="799" y="402" class="small-atom-text">Cu</text>
+            <circle cx="793" cy="428" r="10" class="copper-atom" /><text x="793" y="432" class="small-atom-text">Cu</text>
+          </g>
+
+          <g class="solution-ions">
+            <circle cx="175" cy="348" r="17" class="zinc-ion" /><text x="175" y="354" class="ion-text">Zn²⁺</text>
+            <circle cx="345" cy="392" r="17" class="zinc-ion" /><text x="345" y="398" class="ion-text">Zn²⁺</text>
+            <circle cx="205" cy="470" r="20" class="sulfate-ion" /><text x="205" y="476" class="ion-text">SO₄²⁻</text>
+            <circle cx="345" cy="505" r="20" class="sulfate-ion" /><text x="345" y="511" class="ion-text">SO₄²⁻</text>
+            <circle cx="755" cy="375" r="17" class="copper-ion" /><text x="755" y="381" class="ion-text">Cu²⁺</text>
+            <circle cx="900" cy="335" r="17" class="copper-ion" /><text x="900" y="341" class="ion-text">Cu²⁺</text>
+            <circle cx="742" cy="492" r="20" class="sulfate-ion" /><text x="742" y="498" class="ion-text">SO₄²⁻</text>
+            <circle cx="910" cy="470" r="20" class="sulfate-ion" /><text x="910" y="476" class="ion-text">SO₄²⁻</text>
+          </g>
+
+          <path class="salt-bridge" d="M 390 285 C 450 215, 650 215, 710 285 L 682 310 C 630 260, 470 260, 418 310 Z" />
+          <path d="M 478 274 C 515 250, 585 250, 622 274" class="ion-flow-line" />
+          <path d="M 622 295 C 585 320, 515 320, 478 295" class="ion-flow-line" />
+        </svg>
+
+        <div class="drop-zone zone-anode" data-answer="Anode" aria-label="Ablagefeld 1"></div>
+        <div class="drop-zone zone-cathode" data-answer="Kathode" aria-label="Ablagefeld 2"></div>
+        <div class="drop-zone zone-zinc-half" data-answer="Zink-Halbzelle" aria-label="Ablagefeld 3"></div>
+        <div class="drop-zone zone-copper-half" data-answer="Kupfer-Halbzelle" aria-label="Ablagefeld 4"></div>
+        <div class="drop-zone zone-zinc-electrode" data-answer="Zink-Elektrode" aria-label="Ablagefeld 5"></div>
+        <div class="drop-zone zone-copper-electrode" data-answer="Kupfer-Elektrode" aria-label="Ablagefeld 6"></div>
+        <div class="drop-zone zone-oxidation" data-answer="Oxidation" aria-label="Ablagefeld 7"></div>
+        <div class="drop-zone zone-reduction" data-answer="Reduktion" aria-label="Ablagefeld 8"></div>
+        <div class="drop-zone zone-zinc-equation" data-answer="Zn → Zn²⁺ + 2 e⁻" aria-label="Ablagefeld 9"></div>
+        <div class="drop-zone zone-copper-equation" data-answer="Cu²⁺ + 2 e⁻ → Cu" aria-label="Ablagefeld 10"></div>
+        <div class="drop-zone zone-consumer" data-answer="Verbraucher" aria-label="Ablagefeld 11"></div>
+        <div class="drop-zone zone-electron-flow" data-answer="Elektronenfluss" aria-label="Ablagefeld 12"></div>
+        <div class="drop-zone zone-zinc-solution" data-answer="Zinksulfat-Lösung" aria-label="Ablagefeld 13"></div>
+        <div class="drop-zone zone-copper-solution" data-answer="Kupfersulfat-Lösung" aria-label="Ablagefeld 14"></div>
+        <div class="drop-zone zone-bridge" data-answer="Ionenbrücke" aria-label="Ablagefeld 15"></div>
+      </div>
+
+      <aside class="term-bank-panel">
+        <span class="card-kicker">Begriffe</span>
+        <div id="termBank" class="term-bank" aria-label="Begriffsliste">
+          <button class="term-chip" draggable="true" data-term="Kathode" type="button">Kathode</button>
+          <button class="term-chip" draggable="true" data-term="Anode" type="button">Anode</button>
+          <button class="term-chip" draggable="true" data-term="Zink-Halbzelle" type="button">Zink-Halbzelle</button>
+          <button class="term-chip" draggable="true" data-term="Kupfer-Halbzelle" type="button">Kupfer-Halbzelle</button>
+          <button class="term-chip" draggable="true" data-term="Zink-Elektrode" type="button">Zink-Elektrode</button>
+          <button class="term-chip" draggable="true" data-term="Kupfer-Elektrode" type="button">Kupfer-Elektrode</button>
+          <button class="term-chip" draggable="true" data-term="Oxidation" type="button">Oxidation</button>
+          <button class="term-chip" draggable="true" data-term="Reduktion" type="button">Reduktion</button>
+          <button class="term-chip" draggable="true" data-term="Zn → Zn²⁺ + 2 e⁻" type="button">Zn → Zn²⁺ + 2 e⁻</button>
+          <button class="term-chip" draggable="true" data-term="Cu²⁺ + 2 e⁻ → Cu" type="button">Cu²⁺ + 2 e⁻ → Cu</button>
+          <button class="term-chip" draggable="true" data-term="Verbraucher" type="button">Verbraucher</button>
+          <button class="term-chip" draggable="true" data-term="Elektronenfluss" type="button">Elektronenfluss</button>
+          <button class="term-chip" draggable="true" data-term="Zinksulfat-Lösung" type="button">Zinksulfat-Lösung</button>
+          <button class="term-chip" draggable="true" data-term="Kupfersulfat-Lösung" type="button">Kupfersulfat-Lösung</button>
+          <button class="term-chip" draggable="true" data-term="Ionenbrücke" type="button">Ionenbrücke</button>
+        </div>
+      </aside>
+    </section>
+
+    <section class="control-row self-check-controls" aria-label="Bedienelemente der Selbstüberprüfung">
+      <a class="back-link" href="index.html">Zurück zur Gesamtübersicht</a>
+      <button id="checkSelfTestButton" type="button">Überprüfen</button>
+      <button id="resetSelfTestButton" type="button">Neustarten</button>
+      <p id="selfCheckResult" class="self-check-result" aria-live="polite">Ziehe die Begriffe in die leeren Felder.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
